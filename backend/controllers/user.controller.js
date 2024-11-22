@@ -2,6 +2,7 @@ import { User } from "../models/user.model.js";
 import { v2 as cloudinary } from 'cloudinary';
 import bcrypt from 'bcrypt';
 import createTokenandSaveCookie from "../jwt/authToken.js";
+import { Blog } from "../models/blog.model.js";
 
 export const register= async (req,res)=>{
     try {
@@ -105,4 +106,16 @@ export const logout = async (req,res)=>{
     res.status(500).json({message:"Internal Server error"});
     
    }
+}
+
+export const myprofile = async (req,res)=>{
+    const user= await req.user;
+   
+    res.status(200).json(user);
+}
+
+export const allAdmin = async (req,res)=>{
+    const admin= await User.find({role:"admin"});
+    res.status(200).json(admin);
+
 }

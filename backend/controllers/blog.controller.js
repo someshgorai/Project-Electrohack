@@ -20,7 +20,7 @@ export const createBlog= async (req,res)=>{
         }
        const adminName = req?.user?.name;
 
-       const adminPhoto = req?.user?.photo;
+       const adminPhoto = req?.user?.photo?.url;
        const createdBy=req?.user?._id;
 
         const cloudinaryResponse= await cloudinary.uploader.upload(
@@ -86,4 +86,20 @@ export const getSingalBlog = async (req,res)=>{
         return res.status(404).json({message:"Blog not found"})
     }
     res.status(200).json(blog);
+}
+
+export const myBlogs = async (req,res)=>{
+    const {created}=req.user._id;
+    const blog= await Blog.find(created);
+    res.status(200).json(blog);
+}
+
+export const update = async (req,res)=>{
+    const {id}= req.params;
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({message:"Invalid blog id"});
+
+    }
+    const up = await Blog.findByIdAndUpdate(id,req.body,{new:true});
+    res.status(200).json(up);
 }

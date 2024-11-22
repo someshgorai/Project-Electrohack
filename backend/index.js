@@ -1,6 +1,7 @@
  import express from 'express';
  import dotenv from 'dotenv';
  import mongoose from 'mongoose';
+ import cors from "cors";
  import cookieparser from 'cookie-parser';
  
  import { v2 as cloudinary } from 'cloudinary';
@@ -21,6 +22,13 @@ try {
     
 }
    app.use(express.json());
+   app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials:true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    
+   
+   }));
    app.use(express.urlencoded({extended: true}));
    app.use(cookieparser());
 
