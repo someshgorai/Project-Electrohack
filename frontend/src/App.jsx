@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from "../src/components/Navbar";
 import Home from "../src/components/Home.jsx";
-import Footer from "../src/components/Footer";
+import Footer2 from './components/Footer2.jsx';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import  Blogs from "./pages/Blogs"
 import   About  from "./pages/About"
@@ -47,7 +47,7 @@ const App = () => {
 
 
     </ Routes>
-   {!hideNabarFooter &&   <Footer />}
+   {!hideNabarFooter &&   <Footer2 />}
    <Toaster />
     </div>
   )
