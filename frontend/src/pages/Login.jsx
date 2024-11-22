@@ -1,13 +1,14 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState ,Redirect } from 'react'
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const login = () => {
   
   const [email,setemail]= useState("");
   const [password,setpassword]= useState("");
   const [role,setrole]= useState("");
+  const navigate = useNavigate();
     
   
 
@@ -18,11 +19,14 @@ const login = () => {
     try {
       const {data} = await axios.post('http://localhost:4001/api/users/login',{email,password,role},{ withCredentials:true ,headers:{"Content-Type":"multipart/form-data"}});
       console.log(data);
-      toast.success( data.message || "User login successfully");
-      
-      
-      setemail("");
-      
+       toast.success( data.message || "User login successfully");
+       if (data) {
+        setemail("");
+        // Redirect to Home Page
+        navigate("/"); // Replace "/" with the route for your Home page
+      } else {
+        setemail("Invalid email or password");
+      }
       setpassword("");
       setrole("");
       
@@ -30,14 +34,16 @@ const login = () => {
       
     } catch (error) {
       console.log(error);
-      toast.error(error.request.response || "Please fill required details")
+      toast.error( "Please fill required details")
     }
 
   }
    
   return (
     <div>
-     <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+    
+     <div className='min-h-screen flex items-center justify-center nav'>
+    
       <div className='w-full max-w-md bg-white shadow-md rounded p-8'>
         <form onSubmit={handleLogin}>
         <div className='font-semibold text-xl items-center text-center'>

@@ -10,7 +10,7 @@ const Navbar = () => {
   
   return (
     <>
-    <nav className='shadow-xl px-4 py-3 bg-zinc-250'>
+    <nav className='shadow-xl px-4 py-3 nav'>
       <div className=' relative flex justify-between container mx-auto'>
         <div className='font-semibold text-xl'>
           Cilli<span className='text-blue-600'>Blog</span>
@@ -18,8 +18,8 @@ const Navbar = () => {
          <div className='hidden md:flex' >
           <ul className='space-x-6 '>
           <Link to="/" className='hover:text-blue-700'>HOME</Link>
-            <Link to="/blogs" className='hover:text-blue-700'>BLOGS</Link>
-            <Link to="/creators" className='hover:text-blue-700'>CREATORS</Link>
+            <Link to="/blogs" className='hover:text-blue-700'>ENTREPRENEURS</Link>
+            <Link to="/creators" className='hover:text-blue-700'>INVESTORS</Link>
             <Link to="/about" className='hover:text-blue-700'>ABOUT</Link>
             <Link to="/contact" className='hover:text-blue-700'>CONTACT</Link>
           </ul> 
@@ -28,8 +28,8 @@ const Navbar = () => {
       
         <div>
           <div className='space-x-3 hidden md:flex'>
-            <Link to="/dashboard" className='bg-blue-500 text-white font-semibold hover:bg-blue-800 px-4 py-2 rounded-md'>DASHBOARD</Link>
-            <Link to="/login" className='bg-red-500 text-white font-semibold hover:bg-red-800 px-4 py-2 rounded-md  '>LOGIN</Link>
+            <Link to="/dashboard" className='bg-blue-transparent text-black border-2 border-green-600  font-semibold hover:bg-green-600 px-4 py-2 rounded-md'>DASHBOARD</Link>
+            <Link to="/login" className='bg-green-600 text-black border-2 border-green-600 rounded-md px-2 pt-2  hover:bg-gray-300 font-semibold'>LOGIN</Link>
           </div>
         </div>
         <div className='md:hidden' onClick={()=>setshow(!show)}>

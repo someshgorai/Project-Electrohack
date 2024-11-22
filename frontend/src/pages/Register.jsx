@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
-import { Link} from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [name,setname]= useState("");
@@ -12,6 +12,7 @@ const Register = () => {
   const [education,seteducation]= useState("");
   const [photo,setphoto]= useState("");
   const [photoPreview,setphotoPreview]= useState("");
+  const navigate = useNavigate();
   
   const changePhotoHandler = (e)=>{
       console.log(e);
@@ -40,25 +41,34 @@ const Register = () => {
       const {data} = await axios.post('http://localhost:4001/api/users/register',formData,{ headers:{"Content-Type":"multipart/form-data"}});
       console.log(data);
       toast.success( data.message || "User Registered successfully");
-      setname("");
-      setemail("");
-      setphone("");
-      setpassword("");
-      setrole("");
-      seteducation("");
-      setphoto("");
-      setphotoPreview("");
+
+
+
+
+      if (data) {
+        setname("");
+        setemail("");
+        setphone("");
+        setpassword("");
+        setrole("");
+        seteducation("");
+        setphoto("");
+        setphotoPreview("");
+        // Redirect to Home Page
+        navigate("/"); // Replace "/" with the route for your Home page
+      }
+     
       
     } catch (error) {
       console.log(error);
-      toast.error(error.request.response || "Please fill required details")
+      toast.error( "Please fill required details")
     }
 
   }
    
   return (
     <div>
-     <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+     <div className='min-h-screen flex items-center justify-center nav'>
       <div className='w-full max-w-md bg-white shadow-md rounded p-8'>
         <form onSubmit={handleRegister}>
         <div className='font-semibold text-xl items-center text-center'>

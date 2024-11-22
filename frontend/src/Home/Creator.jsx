@@ -22,10 +22,10 @@ function Creator() {
   }, []);
   return (
    <div className='container mx-auto p-4'>
-    <h1 className='text-2xl font-semibold mb-6'>Popular Creaters</h1>
+    <h1 className='text-2xl font-semibold mb-6'>Meet Our Team</h1>
      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5  '>
      { admin && admin.length >0 ? (
-      admin.slice(0,4).map((element)=>{
+      admin.slice(0,3).map((element)=>{
         return(
          
            <div key={element._id} className='rounded-full text-center' >
