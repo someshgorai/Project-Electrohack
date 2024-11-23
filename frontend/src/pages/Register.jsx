@@ -45,7 +45,7 @@ const Register = () => {
 
 
 
-      if (data) {
+      if (role ==="user") {
         setname("");
         setemail("");
         setphone("");
@@ -55,7 +55,9 @@ const Register = () => {
         setphoto("");
         setphotoPreview("");
         // Redirect to Home Page
-        navigate("/"); // Replace "/" with the route for your Home page
+        navigate("/blogs"); // Replace "/" with the route for your Home page
+      } else {
+        navigate("/creators");
       }
      
       
@@ -77,8 +79,8 @@ const Register = () => {
         <h1 className='text-xl font-semibold mb-5'>Register</h1>
         <select value={role} onChange={(e)=>setrole(e.target.value)} className='w-full p-2 mb-3 border rounded-md'>
           <option value="">Select Role</option>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
+          <option value="user">Entrepreneur</option>
+          <option value="admin">Investor</option>
         </select>
         <div className='mb-2'>
           <input type="text" placeholder='Your Name' value={name} onChange={(e)=>setname(e.target.value)} className='w-full p-2 mb-4 border rounded-md' />

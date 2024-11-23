@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState ,Redirect } from 'react'
+import React, { useState  } from 'react'
 import toast from 'react-hot-toast';
 import { Link,useNavigate } from 'react-router-dom';
 
@@ -20,11 +20,19 @@ const login = () => {
       const {data} = await axios.post('http://localhost:4001/api/users/login',{email,password,role},{ withCredentials:true ,headers:{"Content-Type":"multipart/form-data"}});
       console.log(data);
        toast.success( data.message || "User login successfully");
-       if (data) {
+       if (role=== "user") {
         setemail("");
         // Redirect to Home Page
-        navigate("/"); // Replace "/" with the route for your Home page
-      } else {
+        navigate("/blogs"); // Replace "/blogs" with the route for your Entrepreneur page
+      }
+      else if (role === "admin"){
+        setemail("");
+         // Redirect to Home Page
+         navigate("/creators"); // Replace "/" with the route for your investors page
+      }
+      
+      
+      else {
         setemail("Invalid email or password");
       }
       setpassword("");

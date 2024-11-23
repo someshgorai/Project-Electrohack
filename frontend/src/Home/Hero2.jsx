@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { Link } from 'react-router-dom';
-import image from 'C:\\Users\\sheik\\OneDrive\\Desktop\\work\\frontend\\public\\Images\\Entrepreneurship.png';
+import image from '../../public/Images/Entrepreneurship.png';
 
 
 const Hero = () => (

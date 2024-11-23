@@ -3,15 +3,17 @@ import Navbar from "../src/components/Navbar";
 import Home from "../src/components/Home.jsx";
 import Footer2 from './components/Footer2.jsx';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import  Blogs from "./pages/Blogs"
+import  Blogs from "./pages/Enterpreneur.jsx"
 import   About  from "./pages/About"
-import  Contact from "./pages/Contact"
+import  Contact from "./pages/feedback.jsx"
 import  Login from "./pages/Login"
 import  Register from "./pages/Register"
-import  Dashboard from "./pages/Dashboard"
+import  Dashboard from "./pages/pitch.jsx"
 import  { Toaster } from 'react-hot-toast';
 import { useAuth } from './context/AuthProvider';
-import Creaters from './pages/Creators';
+import Creaters from './pages/InvestorsPage2.jsx';
+import Resources from './pages/Resources.jsx';
+import Mentors from './pages/Mentors.jsx';
 
 const App = () => {
   const location = useLocation();
@@ -43,6 +45,8 @@ const App = () => {
 
     <Route exact path='/register' element={<Register/>} />
     <Route exact path='/dashboard' element={<Dashboard/>} />
+    <Route exact path='/resources' element={<Resources/>} />
+    <Route exact path='/mentors' element={<Mentors/>} />
 
 
 

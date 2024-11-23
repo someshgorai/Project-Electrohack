@@ -41,7 +41,7 @@ const Creators = () => {
           <p className='text-center text-gray-600 mt-2'>{creator.role}</p>
         </div>
         </div>
-      
+             
           )
 })
  ):(<div> </div>)}

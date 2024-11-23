@@ -52,8 +52,10 @@ span{
   background-color: rgb(240, 248, 255);
 }
 
-
-
+ .logo2 {
+  height: 55px;
+  width:auto;
+ }
 
 .hero {
     display: flex;

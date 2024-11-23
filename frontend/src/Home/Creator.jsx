@@ -30,7 +30,7 @@ function Creator() {
          
            <div key={element._id} className='rounded-full text-center' >
             <div className=' group relative ml-6 bg-white rounded-full '>
-              <img src={element.photo.url} alt="" className='w-full h-56 object-cover p-3   rounded-full ' />
+              <img src="https://tse4.mm.bing.net/th?id=OIP.tJjO9x47Jaj47sI3JbJWIwHaE8&pid=Api&P=0&h=180" alt="" className='w-full h-56 object-cover p-3   rounded-full ' />
               
              </div>
              <div>
