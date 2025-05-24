@@ -74,7 +74,7 @@ const Register = () => {
       <div className='w-full max-w-md bg-white shadow-md rounded p-8'>
         <form onSubmit={handleRegister}>
         <div className='font-semibold text-xl items-center text-center'>
-          Cilli<span className='text-blue-600'>Blog</span>
+          Launch<span className='text-blue-600'>PAD</span>
         </div>
         <h1 className='text-xl font-semibold mb-5'>Register</h1>
         <select value={role} onChange={(e)=>setrole(e.target.value)} className='w-full p-2 mb-3 border rounded-md'>

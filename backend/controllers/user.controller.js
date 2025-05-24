@@ -8,7 +8,9 @@ export const register= async (req,res)=>{
     try {
         if(!req.files || Object.keys(req.files).length ===0){
             return res.status(400).json({msg:"No file uploaded"})
-        }
+            
+        }   
+        console.log(req.body);
 
         const {photo}=req.files;
         const allowedFormats = ["image/jpeg","image/png","image/webp"];

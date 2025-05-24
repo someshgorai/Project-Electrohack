@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+ 
 // Dummy data for investors
 const investors = [
   {
@@ -146,7 +147,7 @@ const EntrepreneurPage = () => {
           </div>
         ))}
       </div>
-
+     
       
      
     </div>
